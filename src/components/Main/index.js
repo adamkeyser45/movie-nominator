@@ -8,6 +8,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
+import MovieCreationTwoToneIcon from '@material-ui/icons/MovieCreationTwoTone';
+import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -72,7 +74,7 @@ export default function Album() {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <CameraIcon className={classes.icon} />
+          <MovieCreationTwoToneIcon className={classes.icon} />
           <Typography variant="h6" color="inherit" noWrap>
             Movie Nominator
           </Typography>
@@ -91,11 +93,16 @@ export default function Album() {
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
-                <Grid item>
+                <Grid item xs={12}>
+                    <form className={classes.root} noValidate autoComplete="off">
+                        <TextField id="outlined-basic" label="Search" variant="outlined" />
+                    </form>                    
+                </Grid>
+                {/* <Grid item>
                   <Button variant="contained" color="primary">
                     Search
                   </Button>
-                </Grid>
+                </Grid> */}
                 <Grid item>
                   <Button variant="outlined" color="primary">
                     Submit Nominations
