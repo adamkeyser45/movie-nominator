@@ -19,7 +19,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Movie Nominator
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -71,7 +71,7 @@ export default function Album() {
         <Toolbar>
           <CameraIcon className={classes.icon} />
           <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+            Movie Nominator
           </Typography>
         </Toolbar>
       </AppBar>
@@ -80,23 +80,22 @@ export default function Album() {
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Album layout
+              Movie Nominator
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+              Search for a movie in the bar below to nominate it for an award!
+              Be aware that you can only nominate up to 5 movies!
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
                   <Button variant="contained" color="primary">
-                    Main call to action
+                    Search
                   </Button>
                 </Grid>
                 <Grid item>
                   <Button variant="outlined" color="primary">
-                    Secondary action
+                    Submit Nominations
                   </Button>
                 </Grid>
               </Grid>
@@ -142,7 +141,16 @@ export default function Album() {
           Footer
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
+          Like my work? Check out my profiles!
+          <div>
+            <a className="btn btn-outline-dark btn-social mx-1" 
+                href="https://github.com/adamkeyser45">
+                    <i className="fab fa-fw fa-github fa-lg" style={{background:"SkyBlue"}}></i></a>
+            <a className="btn btn-outline-dark btn-social mx-1" 
+                href="https://www.linkedin.com/in/adam-keyser-693741107/">
+                    <i className="fab fa-fw fa-linkedin-in fa-lg" style={{background:"SkyBlue"}}></i></a>
+          </div>
+
         </Typography>
         <Copyright />
       </footer>
