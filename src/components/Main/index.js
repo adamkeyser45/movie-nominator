@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -65,12 +65,23 @@ const useStyles = makeStyles((theme) => ({
 
 const cards = [1];
 
-function searchForMovies() {
-    
-}
+
 
 export default function Album() {
-  const classes = useStyles();
+    const classes = useStyles();
+
+    const [formState, setFormState] = useState({ searchQuery: '' });
+
+    const { searchQuery } = formState;
+
+    function handleChange(e) {
+        setFormState({...formState, searchQuery: e.target.value })
+    }
+
+    function searchForMovies(e) {
+        e.preventDefault();
+        console.log(formState);
+    }
 
   return (
     <React.Fragment>
@@ -97,15 +108,19 @@ export default function Album() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item xs={12}>
-                    <form className={classes.root} noValidate autoComplete="off">
-                        <TextField id="outlined-basic" label="Search" variant="outlined" />
+                    <form className={classes.root} noValidate autoComplete="off" onSubmit={searchForMovies}>
+                        <TextField id="outlined-basic" label="Search" variant="outlined" 
+                            name="searchQuery" defaultValue={searchQuery} onChange={handleChange}/>
+                        <Button variant="contained" color="primary" type="submit">
+                            Search
+                        </Button>
                     </form>                    
                 </Grid>
-                <Grid item>
-                  <Button variant="contained" color="primary">
+                {/* <Grid item>
+                  <Button variant="contained" color="primary" type="submit">
                     Search
                   </Button>
-                </Grid>
+                </Grid> */}
                 <Grid item>
                   <Button variant="outlined" color="primary">
                     Submit Nominations
