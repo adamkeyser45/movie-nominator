@@ -57,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
   buttonCenter: {
     flexGrow: 1,
   },
+  buttonSpacing: {
+    margin: theme.spacing(2, 0, 1),
+  },
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
@@ -64,8 +67,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const cards = [1];
-
-
 
 export default function Album() {
     const classes = useStyles();
@@ -109,18 +110,19 @@ export default function Album() {
               <Grid container spacing={2} justify="center">
                 <Grid item xs={12}>
                     <form className={classes.root} noValidate autoComplete="off" onSubmit={searchForMovies}>
-                        <TextField id="outlined-basic" label="Search" variant="outlined" 
-                            name="searchQuery" defaultValue={searchQuery} onChange={handleChange}/>
-                        <Button variant="contained" color="primary" type="submit">
-                            Search
-                        </Button>
+                        <Grid>
+                            <Grid item xs={12}>
+                                <TextField id="outlined-basic" label="Search" variant="outlined" 
+                                    name="searchQuery" defaultValue={searchQuery} onChange={handleChange}/>                               
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Button variant="contained" color="primary" type="submit" className={classes.buttonSpacing}>
+                                    Search
+                                </Button>                                  
+                            </Grid>
+                        </Grid>
                     </form>                    
                 </Grid>
-                {/* <Grid item>
-                  <Button variant="contained" color="primary" type="submit">
-                    Search
-                  </Button>
-                </Grid> */}
                 <Grid item>
                   <Button variant="outlined" color="primary">
                     Submit Nominations
