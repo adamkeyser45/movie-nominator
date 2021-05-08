@@ -1,7 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -64,7 +63,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [1];
+
+function searchForMovies() {
+    
+}
 
 export default function Album() {
   const classes = useStyles();
@@ -98,11 +101,11 @@ export default function Album() {
                         <TextField id="outlined-basic" label="Search" variant="outlined" />
                     </form>                    
                 </Grid>
-                {/* <Grid item>
+                <Grid item>
                   <Button variant="contained" color="primary">
                     Search
                   </Button>
-                </Grid> */}
+                </Grid>
                 <Grid item>
                   <Button variant="outlined" color="primary">
                     Submit Nominations
@@ -148,13 +151,12 @@ export default function Album() {
           Like my work? Check out my profiles!
           <div>
             <a className="btn btn-outline-dark btn-social mx-1" 
-                href="https://github.com/adamkeyser45">
-                    <i className="fab fa-fw fa-github fa-lg" style={{background:"SkyBlue"}}></i></a>
+                href="https://github.com/adamkeyser45" target="_blank" rel="noreferrer">
+                    <i className="fab fa-fw fa-github fa-lg"></i></a>
             <a className="btn btn-outline-dark btn-social mx-1" 
-                href="https://www.linkedin.com/in/adam-keyser-693741107/">
-                    <i className="fab fa-fw fa-linkedin-in fa-lg" style={{background:"SkyBlue"}}></i></a>
+                href="https://www.linkedin.com/in/adam-keyser-693741107/" target="_blank" rel="noreferrer">
+                    <i className="fab fa-fw fa-linkedin-in fa-lg"></i></a>
           </div>
-
         </Typography>
         <Copyright />
       </footer>
