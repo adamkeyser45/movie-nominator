@@ -82,6 +82,19 @@ export default function Album() {
     function searchForMovies(e) {
         e.preventDefault();
         console.log(formState);
+        const apiUrl = "http://www.omdbapi.com/?s=" + formState.searchQuery + "&apikey=bf93edb6";
+
+        console.log(apiUrl);
+
+        fetch(apiUrl).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                });
+            } else {
+                alert("Error: " + response.statusText);
+            };
+        });
     }
 
   return (
