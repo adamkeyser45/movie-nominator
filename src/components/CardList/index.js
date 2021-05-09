@@ -10,22 +10,22 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
-      paddingTop: theme.spacing(8),
-      paddingBottom: theme.spacing(8),
+        paddingTop: theme.spacing(8),
+        paddingBottom: theme.spacing(8),
     },
     card: {
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
     },
     cardMedia: {
-      paddingTop: '56.25%', // 16:9
+        paddingTop: '56.25%', // 16:9
     },
     cardContent: {
-      flexGrow: 1,
+        flexGrow: 1,
     },
     buttonCenter: {
-      flexGrow: 1,
+        flexGrow: 1,
     },
 }));
 
@@ -35,34 +35,34 @@ function CardList({ result }) {
 
     return (
         <Grid container spacing={4}>
-        {/* Movie Cards */}
-        {cards.map((card) => (
-          <Grid item key={card.imbdID} xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
-              <CardMedia
-                className={classes.cardMedia}
-                image={card.Poster}
-                title={card.Title}
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {card.Title}
-                </Typography>
-                <Typography>
-                  {card.Year}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small" color="primary" className={classes.buttonCenter}>
-                  Nominate!
+            {/* Movie Cards */}
+            {cards.map((card) => (
+                <Grid item key={card.imbdID} xs={12} sm={6} md={4}>
+                    <Card className={classes.card}>
+                        <CardMedia
+                            className={classes.cardMedia}
+                            image={card.Poster}
+                            title={card.Title}
+                        />
+                        <CardContent className={classes.cardContent}>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                {card.Title}
+                            </Typography>
+                            <Typography>
+                                {card.Year}
+                            </Typography>
+                        </CardContent>
+                        <CardActions>
+                            <Button size="small" color="primary" className={classes.buttonCenter}>
+                                Nominate!
                 </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        ))}
-        {/* End Movie Cards */}
-      </Grid>
+                        </CardActions>
+                    </Card>
+                </Grid>
+            ))}
+            {/* End Movie Cards */}
+        </Grid>
     )
 }
-    
+
 export default CardList;
