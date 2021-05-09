@@ -33,8 +33,8 @@ function CardList({ result }) {
     const classes = useStyles();
     const cards = result;
 
-    const nominate = () => {
-        console.log("Hello!");
+    const nominate = (title, year) => {
+        console.log("Hello! " + title + " " + year);
     }
 
     return (
@@ -57,7 +57,7 @@ function CardList({ result }) {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small" color="primary" className={classes.buttonCenter} onClick={() => nominate()}>
+                            <Button size="small" color="primary" className={classes.buttonCenter} onClick={() => nominate(card.Title, card.Year)}>
                                 Nominate!
                             </Button>
                         </CardActions>
