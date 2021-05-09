@@ -130,7 +130,7 @@ export default function Main() {
                         {/* Nomination Box */}
                         <Grid container spacing={2} justify="center">
                             <Grid item xs={12}>
-                                <Paper maxWidth="lg" variant="outlined" className={classes.paperStyle}>
+                                <Paper maxwidth="lg" variant="outlined" className={classes.paperStyle}>
                                     <h2>Nominated Movies</h2>
                                 </Paper>
                             </Grid>   

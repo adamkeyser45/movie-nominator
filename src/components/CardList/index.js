@@ -33,6 +33,10 @@ function CardList({ result }) {
     const classes = useStyles();
     const cards = result;
 
+    const nominate = () => {
+        console.log("Hello!");
+    }
+
     return (
         <Grid container spacing={4}>
             {/* Movie Cards */}
@@ -53,9 +57,9 @@ function CardList({ result }) {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small" color="primary" className={classes.buttonCenter}>
+                            <Button size="small" color="primary" className={classes.buttonCenter} onClick={() => nominate()}>
                                 Nominate!
-                </Button>
+                            </Button>
                         </CardActions>
                     </Card>
                 </Grid>
