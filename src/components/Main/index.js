@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
 import CardList from "../CardList";
+// import { ContactlessOutlined } from '@material-ui/icons';
 
 function Copyright() {
   return (
@@ -68,12 +69,19 @@ export default function Main() {
         result: []
     });
 
+    const [nomState, setNomState] = useState({
+        noms: []
+    });
+
     function handleChange(e) {
         setFormState({...formState, searchQuery: e.target.value })
     };
 
-    function myCallBack(title, year) {
-        console.log(title + " " + year + " !");
+    function sendToNominees(title, year) {
+        console.log("I received " + title + " " + year + " !");
+        const nominee = title + "- " + year;
+
+        console.log(nominee);
     };
 
     function searchForMovies(e) {
@@ -149,7 +157,7 @@ export default function Main() {
                 </Container>
                 </div>
         <Container className={classes.cardGrid} maxWidth="md">
-            <CardList result={resultState.result} passToParent={myCallBack}/>
+            <CardList result={resultState.result} passToParent={sendToNominees}/>
         </Container>
             </main>
             {/* End hero unit */}

@@ -80,5 +80,3 @@ function CardList(props) {
 }
 
 export default CardList;
-
-// onClick={() => nominate(card.Title, card.Year)}
