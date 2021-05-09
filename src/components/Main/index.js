@@ -53,47 +53,53 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 export default function Album() {
     const classes = useStyles();
     const [formState, setFormState] = useState({ searchQuery: '' });
     const { searchQuery } = formState;
 
+    const [resultState, setResultState] = useState({
+        result: []
+    });
+
     function handleChange(e) {
         setFormState({...formState, searchQuery: e.target.value })
     }
 
-    function createMovieCards(data) {
-        const searchResults = data.Search;
+    // function createMovieCards(data) {
+    //     const searchResults = data.Search;
 
-        searchResults.forEach(function (result) {
-            const card = {title: "", year: "", poster: ""};
+    //     let movieCards = [];
 
-            card.title = result.Title;
-            card.year = result.Year;
-            card.poster = result.Poster;
+    //     searchResults.forEach(function (result) {
+    //         const card = {title: "", year: "", poster: ""};
 
-            console.log(card);
-        })
-    }
+    //         card.title = result.Title;
+    //         card.year = result.Year;
+    //         card.poster = result.Poster;
+
+    //         movieCards.push(card);
+    //     })
+
+    //     movieCardList = movieCards;
+    // }
 
     function searchForMovies(e) {
         e.preventDefault();
-        console.log(formState);
         const apiUrl = "http://www.omdbapi.com/?s=" + formState.searchQuery + "&apikey=bf93edb6";
-
-        console.log(apiUrl);
 
         fetch(apiUrl).then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    createMovieCards(data);
+                    setResultState(prevState => {
+                        return {...prevState, result: data}
+                    })
                 });
             } else {
                 alert("Error: " + response.statusText);
             };
         });
+
     }
 
   return (
@@ -146,7 +152,7 @@ export default function Album() {
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
-            <CardList />
+            <CardList result={resultState.result}/>
         </Container>
       </main>
       {/* Footer */}

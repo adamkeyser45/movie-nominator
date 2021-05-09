@@ -29,10 +29,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function CardList() {
+function CardList({ result }) {
     const classes = useStyles();
     const cards = [1];
 
+    let data = [];
+    if (result.data) {
+        data = result.data.Search || [];
+    }
+    console.log(data);
+    
     return (
         <Grid container spacing={4}>
         {/* Movie Cards */}
