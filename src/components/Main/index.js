@@ -70,7 +70,11 @@ export default function Main() {
 
     function handleChange(e) {
         setFormState({...formState, searchQuery: e.target.value })
-    }
+    };
+
+    function myCallBack(title, year) {
+        console.log(title + " " + year + " !");
+    };
 
     function searchForMovies(e) {
         e.preventDefault();
@@ -85,7 +89,7 @@ export default function Main() {
                 alert("Error: " + response.statusText);
             };
         });
-    }
+    };
 
     return (
         <React.Fragment>
@@ -145,7 +149,7 @@ export default function Main() {
                 </Container>
                 </div>
         <Container className={classes.cardGrid} maxWidth="md">
-            <CardList result={resultState.result}/>
+            <CardList result={resultState.result} passToParent={myCallBack}/>
         </Container>
             </main>
             {/* End hero unit */}

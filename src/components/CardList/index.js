@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -29,12 +29,20 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function CardList({ result }) {
+function CardList(props) {
     const classes = useStyles();
-    const cards = result;
+    const cards = props.result;
+
+    const [disabledState, setDisabledState] = useState({ isDisabled: false});
+
+    function sendData(title, year) {
+        console.log("Hello! " + title + " " + year);
+        props.passToParent(title, year);
+    }
 
     const nominate = (title, year) => {
         console.log("Hello! " + title + " " + year);
+        // setDisabledState({...disabledState, isDisabled: true});
     }
 
     return (
@@ -57,7 +65,9 @@ function CardList({ result }) {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small" color="primary" className={classes.buttonCenter} onClick={() => nominate(card.Title, card.Year)}>
+                            <Button size="small" color="primary"
+                                    disabled={disabledState.isDisabled} 
+                                    className={classes.buttonCenter} onClick={() => sendData(card.Title, card.Year)}>
                                 Nominate!
                             </Button>
                         </CardActions>
@@ -70,3 +80,5 @@ function CardList({ result }) {
 }
 
 export default CardList;
+
+// onClick={() => nominate(card.Title, card.Year)}
