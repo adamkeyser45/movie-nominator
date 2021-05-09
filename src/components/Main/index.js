@@ -91,9 +91,8 @@ export default function Album() {
         fetch(apiUrl).then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    setResultState(prevState => {
-                        return {...prevState, result: data}
-                    })
+                    // console.log(data.Search);
+                    setResultState({...resultState, result: data.Search })
                 });
             } else {
                 alert("Error: " + response.statusText);
