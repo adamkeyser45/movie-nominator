@@ -32,26 +32,24 @@ const useStyles = makeStyles((theme) => ({
 function CardList({ result }) {
     const classes = useStyles();
     const cards = result;
-    
-    console.log(result);
 
     return (
         <Grid container spacing={4}>
         {/* Movie Cards */}
         {cards.map((card) => (
-          <Grid item key={card.title} xs={12} sm={6} md={4}>
+          <Grid item key={card.imbdID} xs={12} sm={6} md={4}>
             <Card className={classes.card}>
               <CardMedia
                 className={classes.cardMedia}
-                image="https://source.unsplash.com/random"
-                title="Movie Poster"
+                image={card.Poster}
+                title={card.Title}
               />
               <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant="h5" component="h2">
-                  Movie Title
+                  {card.Title}
                 </Typography>
                 <Typography>
-                  The movie Year!
+                  {card.Year}
                 </Typography>
               </CardContent>
               <CardActions>
