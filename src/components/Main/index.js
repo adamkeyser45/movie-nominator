@@ -81,7 +81,8 @@ export default function Main() {
         console.log("I received " + title + " " + year + " !");
         const nominee = title + "- " + year;
 
-        console.log(nominee);
+        setNomState({...nomState, noms: nominee});
+        console.log(nomState);
     };
 
     function searchForMovies(e) {
