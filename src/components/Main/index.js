@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
 import CardList from "../CardList";
+import NomineeCard from "../NomineeCard";
 // import { ContactlessOutlined } from '@material-ui/icons';
 
 function Copyright() {
@@ -54,9 +55,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(6),
   },
   paperStyle: {
-    margin: theme.spacing(1),
-
-    height: theme.spacing(16),
+    padding: theme.spacing(2),
   }
 }));
 
@@ -144,7 +143,30 @@ export default function Main() {
                         <Grid container spacing={2} justify="center">
                             <Grid item xs={12}>
                                 <Paper maxwidth="lg" variant="outlined" className={classes.paperStyle}>
-                                    <h2>Nominated Movies</h2>
+
+                                    <Grid container spacing={2} justify="center">
+                                        <Grid item xs={12}>
+                                            <Typography variant="h3">
+                                                Nominated Movies
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <NomineeCard />                                            
+                                        </Grid>
+                                        <Grid item>
+                                            <NomineeCard />                                            
+                                        </Grid>
+                                        <Grid item>
+                                            <NomineeCard />                                            
+                                        </Grid>
+                                        <Grid item>
+                                            <NomineeCard />                                            
+                                        </Grid>
+                                        <Grid item>
+                                            <NomineeCard />                                            
+                                        </Grid>
+
+                                    </Grid>
                                 </Paper>
                             </Grid>   
                             <Grid item xs={12}>
