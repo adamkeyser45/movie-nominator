@@ -86,7 +86,7 @@ export default function Main() {
 
     function searchForMovies(e) {
         e.preventDefault();
-        const apiUrl = "http://www.omdbapi.com/?s=" + formState.searchQuery + "&type=movie&apikey=bf93edb6";
+        const apiUrl = "https://www.omdbapi.com/?s=" + formState.searchQuery + "&type=movie&apikey=bf93edb6";
 
         fetch(apiUrl).then(function (response) {
             if (response.ok) {
